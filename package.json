@@ -20,6 +20,16 @@
     "pre-commit": "^1.2.2",
     "xo": "^0.24.0"
   },
+  "keywords": [
+    "game",
+    "redis",
+    "score",
+    "rating",
+    "ranking",
+    "rank",
+    "points",
+    "leaderboard"
+  ],
   "pre-commit": [
     "test"
   ],
