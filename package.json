@@ -1,0 +1,49 @@
+{
+  "name": "scorerank",
+  "version": "0.1.0",
+  "description": "Simple score ranking with redis",
+  "main": "index.js",
+  "license": "MIT",
+  "private": false,
+  "author": "Jonathan Brumley <cayasso@gmail.com>",
+  "scripts": {
+    "lint": "xo .; exit 0;",
+    "test": "yarn lint && ava -s -v --fail-fast",
+    "xo": "xo"
+  },
+  "dependencies": {
+    "ioredis": "^4.14.0"
+  },
+  "devDependencies": {
+    "ava": "^2.3.0",
+    "eslint-config-prettier": "^6.1.0",
+    "pre-commit": "^1.2.2",
+    "xo": "^0.24.0"
+  },
+  "pre-commit": [
+    "test"
+  ],
+  "xo": {
+    "prettier": true,
+    "extends": [
+      "prettier"
+    ],
+    "ignores": [
+      "**/test/**",
+      "examples"
+    ],
+    "space": true,
+    "semicolon": false,
+    "rules": {
+      "import/no-unassigned-import": 0,
+      "import/extensions": 0,
+      "ava/no-skip-test": 0,
+      "ava/no-only-test": 0,
+      "capitalized-comments": 0,
+      "camelcase": 0,
+      "max-params": 0,
+      "complexity": 0,
+      "no-ex-assign": 0
+    }
+  }
+}
