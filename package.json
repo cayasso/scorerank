@@ -1,7 +1,7 @@
 {
   "name": "scorerank",
-  "version": "0.1.0",
-  "description": "Simple score ranking with redis",
+  "version": "0.1.1",
+  "description": "Simple but powerfull score ranking with redis",
   "main": "index.js",
   "license": "MIT",
   "private": false,
