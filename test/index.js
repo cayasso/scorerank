@@ -62,7 +62,7 @@ test('should get top ranks', async t => {
 
   const res = await score.top()
 
-  t.deepEqual(res, ['u3', 'u2', 'u1'])
+  t.deepEqual(res, [['u3', 22], ['u2', 21], ['u1', 20]])
 })
 
 test('should get top ranks in range', async t => {
@@ -74,7 +74,7 @@ test('should get top ranks in range', async t => {
 
   const res = await score.top([2, 3])
 
-  t.deepEqual(res, ['u3', 'u2'])
+  t.deepEqual(res, [['u3', 22], ['u2', 21]])
 })
 
 test('should add scores with namespace', async t => {
@@ -126,7 +126,7 @@ test('should get top ranks with namespace', async t => {
 
   const res = await score.top('abc')
 
-  t.deepEqual(res, ['u3', 'u2', 'u1'])
+  t.deepEqual(res, [['u3', 22], ['u2', 21], ['u1', 20]])
 })
 
 test('should get top ranks in range with namespace', async t => {
@@ -138,5 +138,5 @@ test('should get top ranks in range with namespace', async t => {
 
   const res = await score.top([2, 3], 'abc')
 
-  t.deepEqual(res, ['u3', 'u2'])
+  t.deepEqual(res, [['u3', 22], ['u2', 21]])
 })
