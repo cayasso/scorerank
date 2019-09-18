@@ -28,13 +28,21 @@ const createScoreRank = ({ prefix = 'scores', ...options }) => {
     return isNumber(s) ? parseInt(s, 10) : undefined
   }
 
-  const top = (range = DEFAULT_RANGE, ns) => {
+  const top = async (range = DEFAULT_RANGE, ns) => {
     if (!Array.isArray(range)) {
       ns = range
       range = DEFAULT_RANGE
     }
 
-    return client.zrevrange(key(ns), ...range.map(String))
+    const [start, end] = range.map(String)
+    const res = await client.zrevrange(key(ns), start, end, 'WITHSCORES')
+    const ranks = []
+
+    for (let i = 0; i < res.length; i += 2) {
+      ranks.push([res[i], parseInt(res[i + 1], 10)])
+    }
+
+    return ranks
   }
 
   const rank = (id, ns) => {
