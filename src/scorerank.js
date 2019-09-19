@@ -2,8 +2,10 @@
 
 const Redis = require('ioredis')
 
-const createScoreRank = ({ prefix = 'scores', ...options }) => {
-  const client = new Redis({ keyPrefix: prefix, lazyConnect: true, ...options })
+const DEFAULT_URL = 'redis://localhost:6379'
+
+const createScoreRank = (url = DEFAULT_URL, { prefix = 'scores', ...options } = {}) => {
+  const client = new Redis(url, { keyPrefix: prefix, lazyConnect: true, ...options })
 
   const DEFAULT_RANGE = [0, 100]
 
