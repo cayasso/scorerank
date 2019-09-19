@@ -16,14 +16,10 @@ $ npm install scorerank
 ```javascript
 const scorerank = require('scorerank')
 
-const options = {
-  port: 6379,
-  host: '127.0.0.1',
-  password: '',
-  prefix: 'scores'
-}
+const url = 'redis://127.0.0.1:6379'
+const options = { prefix: 'scores' }
 
-const score = scorerank(options)
+const score = scorerank(url, options)
 
 // Add scores
 score.add('user1', 20)
